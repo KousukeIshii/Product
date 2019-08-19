@@ -9,6 +9,8 @@ services:
       - ./public:/var/www/html/public:ro
     ports:
       - "8000:80"
+    depends_on:
+      - app
 
   app:
     build:

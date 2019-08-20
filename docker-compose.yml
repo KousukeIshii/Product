@@ -17,6 +17,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
+      - .env
       - .env.example
     volumes:
       - .:/var/www/html:cached

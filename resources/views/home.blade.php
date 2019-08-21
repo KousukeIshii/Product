@@ -16,6 +16,7 @@
                         <h5>名前</h5><p>{{$user->name}}</p>
                         <h5>GoogleID</h5><p>{{$user->google_id}}</p>
                         <h5>Emailアドレス</h5><p>{{$user->email}}</p>
+                        <h5>アクセストークン</h5><p>{{$token}}</p>
                     </div>
                 </div>
             </div>

@@ -28,6 +28,7 @@ class HomeController extends Controller
             return view('home-login-error');
         }
         $user = Auth::user();
-        return view('home', compact('user'));
+        $token = auth('api')->login($user);
+        return view('home', compact('user','token'));
     }
 }

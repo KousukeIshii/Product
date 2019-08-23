@@ -18,6 +18,8 @@ class CreateGoogleUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('google_id');
+            $table->string('token',1000);
+            $table->integer('token_exp_time');
             $table->timestamps();
         });
     }

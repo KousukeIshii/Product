@@ -23,6 +23,8 @@ class OAuthLoginController extends Controller
             $user['email'] = $googleUser->email;
             $user['google_id'] = $googleUser->getId();
             $user['name'] = $googleUser->getNickname() ?? $googleUser->getName() ?? $googleUser->getNick();
+            $user['token'] = 'init';
+            $user['token_exp_time'] = 0;
             $user->save();
         }
         Auth::login($user);

@@ -28,7 +28,17 @@ class HomeController extends Controller
             return view('home-login-error');
         }
         $user = Auth::user();
-        $token = auth('api')->login($user);
-        return view('home', compact('user','token'));
+        $date = time();
+
+        if($user['token_exp_time'] + 3000 <= $date) { #期限切れ１０分前から更新可能
+            $token = auth('api')->login($user);
+            $user['token'] = $token;
+            $user['token_exp_time'] = $date + 3600;
+            $user->save();
+        } else {
+            $token = $user['token'];
+        }
+        $exp = $user['token_exp_time'];
+        return view('home', compact('user','token','exp'));
     }
 }

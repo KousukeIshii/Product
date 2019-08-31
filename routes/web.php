@@ -22,3 +22,10 @@ Auth::routes(['register' => false]);
 Route::get('/auth/{service}', 'OAuthLoginController@getGoogleAuth')->where('service', 'google');
 Route::get('/auth/callback/google', 'OAuthLoginController@authGoogleCallback');
 
+Route::get('/spa', function () {
+    return view('spa');
+});
+
+Route::get('/spa/{any}', function () {
+    return view('spa');
+})->where('any', '.*');

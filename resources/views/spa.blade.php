@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
@@ -16,12 +19,11 @@
 </head>
 <body>
 <div id="app">
-    <router-link to="/spa/index">/spa/index</router-link>
-    <div class="container">
+    <div class="container-fluid">
         <router-view></router-view>
-        a
     </div>
 </div>
 </body>
 <script src="{{ mix('js/app.js') }}"></script>
 </html>
+@endsection

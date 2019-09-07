@@ -11,11 +11,6 @@
     <title>Laravel</title>
 
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <script>
-        window.Laravel = {
-            csrfToken: "{{ csrf_token() }}"
-        };
-    </script>
 </head>
 <body>
 <div id="app">
@@ -24,6 +19,10 @@
     </div>
 </div>
 </body>
-<script src="{{ mix('js/app.js') }}"></script>
 </html>
 @endsection
+<script>
+    window.onload = function() {
+        localStorage.setItem('j_token', '{{$token}}');
+    };
+</script>

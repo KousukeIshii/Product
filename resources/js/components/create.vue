@@ -10,7 +10,6 @@
         <input type="file" @change="getFile" ref="input" accept="image/gif,image/jpeg,image/jpg,image/png" class="product-form"/>
         <br>
         <button v-on:click="postProducts">商品を登録</button>
-        <textarea id="base64area">base64データ</textarea>
     </div>
 </template>
 
@@ -40,7 +39,7 @@
                 fr.readAsDataURL(img);
             },
             postProducts() {
-                //const image = document.getElementById("base64area").innerHTML;
+                const token = localStorage.getItem('j_token');
                 const data = {
                     "name":this.name,
                     "desc":this.desc,
@@ -49,7 +48,7 @@
                 }
                 const headers = {
                     "Content-Type": "application/json",
-                    "Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvaG9tZSIsImlhdCI6MTU2NzY3MDM5MSwiZXhwIjoxNTY3NjczOTkxLCJuYmYiOjE1Njc2NzAzOTEsImp0aSI6IkNFZGltT2ZabTZPZFhjVWMiLCJzdWIiOjEsInBydiI6ImU1YzUzNzdkODFlMjU1NTg3NzI1MWM0M2U1MGE5NGJlN2E0ZjE2NWQifQ.rrUV8mZ6ao-1p0YpZwAgQC0o4uWdGtNhDX6i0HiSMmI",
+                    "Authorization":`Bearer ${token}`,
                 }
                 this.$http.post('/api/product', data,{
                     headers: headers

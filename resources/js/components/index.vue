@@ -27,11 +27,13 @@
         },
         methods: {
             fetchProducts() {
-                this.$http.get('/api/product',{
-                    headers: { "Content-Type": "application/json","Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvaG9tZSIsImlhdCI6MTU2NzM0NzczNiwiZXhwIjoxNTY3MzUxMzM2LCJuYmYiOjE1NjczNDc3MzYsImp0aSI6InFudEpvNWkzMmxacWdmdHoiLCJzdWIiOjEsInBydiI6ImU1YzUzNzdkODFlMjU1NTg3NzI1MWM0M2U1MGE5NGJlN2E0ZjE2NWQifQ.Qmdky5Y6LdssHjpilPkngkIBzIPfomJBtC5_SczFlSg"},
+                const token = localStorage.getItem('j_token');
+                axios.get('/api/product',{
+                    headers: { "Content-Type": "application/json","Authorization": `Bearer ${token}`},
                     data: {}
                 })
                     .then(res =>  {
+                        console.log(res)
                         this.products = res.data
                     })
             }

@@ -30,11 +30,13 @@ Vue.use(VueRouter);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import index from './components/index.vue'
+import create from './components/create.vue'
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/spa/index', component: index },
+        { path: '/spa/create', component: create},
         //{ path: '/about', component: require('./components/About.vue') },
     ]
 })

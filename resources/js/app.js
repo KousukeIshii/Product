@@ -31,12 +31,14 @@ Vue.use(VueRouter);
  */
 import index from './components/index.vue'
 import create from './components/create.vue'
+import show from './components/show.vue'
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        { path: '/spa/index', component: index },
+        { path: '/spa', component: index },
         { path: '/spa/create', component: create},
+        { path: '/spa/:id', component: show},
         //{ path: '/about', component: require('./components/About.vue') },
     ]
 })

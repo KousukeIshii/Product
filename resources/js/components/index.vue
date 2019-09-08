@@ -3,7 +3,7 @@
             <div class="col-sm-3 product-cards" v-for="product in products.data">
                 <img :src="`../image/${product.image}`" class="col-sm-12 image">
                 <h4 class="title col-sm-12">
-                    {{product.name}}
+                    <router-link id="link" :to="'/spa/' + product.id">{{ product.name }}</router-link>
                 </h4>
                 <p class="desc col-sm-12">
                     {{product.desc}}
@@ -49,9 +49,13 @@
     .image{
         margin:8px 0px 8px 0px;
     }
-    .title{
+    #link{
         color:#232527;
         margin:0;
+    }
+    #link:hover{
+        text-decoration: none;
+        color:darkblue;
     }
     .desc{
         margin:8px 8px;

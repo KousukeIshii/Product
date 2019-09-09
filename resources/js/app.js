@@ -32,6 +32,7 @@ Vue.use(VueRouter);
 import index from './components/index.vue'
 import create from './components/create.vue'
 import show from './components/show.vue'
+import update from './components/update.vue'
 
 const router = new VueRouter({
     mode: 'history',
@@ -39,6 +40,7 @@ const router = new VueRouter({
         { path: '/spa', component: index },
         { path: '/spa/create', component: create},
         { path: '/spa/:id', component: show},
+        { path: '/spa/update/:id', component: update},
         //{ path: '/about', component: require('./components/About.vue') },
     ]
 })

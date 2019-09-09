@@ -18,8 +18,16 @@
                         <h5>Emailアドレス</h5><p>{{$user->email}}</p>
                         <h5>アクセストークン</h5><p>{{$token}}</p>
                     </div>
+                    <textarea id="ba">base64データ</textarea>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+<script>
+    window.onload = function() {
+        localStorage.setItem('j_token', '{{$token}}');
+        const yasu = localStorage.getItem('j_token');
+        document.getElementById('ba').innerText = yasu;
+    };
+</script>

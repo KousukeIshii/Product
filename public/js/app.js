@@ -1849,6 +1849,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchProduct(this.$route.params['id']);
@@ -1872,6 +1873,19 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         console.log(res);
         _this.product = res.data.data;
+      });
+    },
+    destroyProduct: function destroyProduct() {
+      var id = this.$route.params['id'];
+      var token = localStorage.getItem('j_token');
+      axios["delete"]("/api/product/".concat(id), {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer ".concat(token)
+        },
+        data: {}
+      }).then(function (res) {
+        alert("商品を削除しました。");
       });
     }
   }
@@ -38292,6 +38306,10 @@ var render = function() {
         _vm._v(" "),
         _c("h5", [_vm._v(_vm._s(_vm.product.desc))])
       ])
+    ]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.destroyProduct } }, [
+      _vm._v("この商品を削除")
     ])
   ])
 }

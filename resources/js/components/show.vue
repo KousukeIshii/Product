@@ -17,6 +17,7 @@
                 <h5>{{product.desc}}</h5>
             </div>
         </div>
+        <button v-on:click="destroyProduct">この商品を削除</button>
     </div>
 </template>
 
@@ -41,9 +42,20 @@
                         console.log(res)
                         this.product = res.data.data
                     })
+            },
+            destroyProduct() {
+                const id = this.$route.params['id'];
+                const token = localStorage.getItem('j_token');
+                axios.delete(`/api/product/${id}`,{
+                    headers: { "Content-Type": "application/json","Authorization": `Bearer ${token}`},
+                    data: {}
+                })
+                    .then(res =>  {
+                        alert("商品を削除しました。")
+                    })
+            },
             }
         }
-    }
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 product-cards" v-for="product in products.data">
-                <img :src="`../image/${product.image}`" class="col-sm-12 image">
+                <img :src="`data:image/png;base64,${product.image}`" class="col-sm-12 image">
                 <h4 class="title col-sm-12">
                     <router-link id="link" :to="'/spa/show/' + product.id">{{ product.name }}</router-link>
                 </h4>
@@ -20,7 +20,7 @@
 <script>
     export default {
         created() {
-            this.fetchProducts()
+            this.searchProducts()
         },
         data() {
             return {
@@ -28,17 +28,33 @@
             }
         },
         methods: {
-            fetchProducts() {
+            searchProducts() {
+                const keyword = this.$route.query.keyword;
+                const max_value = this.$route.query.max_value;
+                const min_value = this.$route.query.min_value;
+                let data = {};
+                if(keyword){
+                    data.keyword = keyword;
+                }
+                if(max_value){
+                    data.max_value = max_value;
+                }
+                if(min_value){
+                    data.min_value = min_value;
+                }
                 const token = localStorage.getItem('j_token');
-                axios.get('/api/product',{
-                    headers: { "Content-Type": "application/json","Authorization": `Bearer ${token}`},
-                    data: {}
+                const headers = {
+                    "Content-Type": "application/json",
+                    "Authorization":`Bearer ${token}`,
+                }
+                this.$http.post('/api/search', data,{
+                    headers: headers
                 })
                     .then(res =>  {
                         console.log(res)
                         this.products = res.data
                     })
-            }
+            },
         }
     }
 </script>

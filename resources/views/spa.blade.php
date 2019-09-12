@@ -15,6 +15,7 @@
 <body>
 <div id="app">
     <div class="container-fluid">
+        <search-query></search-query>
         <router-view></router-view>
     </div>
 </div>

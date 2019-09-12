@@ -14,7 +14,7 @@ class SearchController extends Controller
         $query = product::query();
 
         //keyword項目に入っていたらnameから検索
-        if($request->filled('name')){
+        if($request->filled('keyword')){
             $query->where('name','like','%'. $request->keyword .'%');
         }
 
@@ -24,8 +24,8 @@ class SearchController extends Controller
         }
         $product = $query->get();
         foreach ($product as $p){
-            if(Storage::disk('s3')->exists("/image/$p->image")) {
-                $img = Storage::disk('s3')->get("/image/$p->image");
+            if(Storage::disk('public')->exists("/image/$p->image")) {
+                $img = Storage::disk('public')->get("/image/$p->image");
                 $p->image = base64_encode($img);
             } else {
                 $p->image = "Image not found";

@@ -27,7 +27,7 @@ class SearchRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required_without_all:min_value,max_value',
+            'keyword' => 'required_without_all:min_value,max_value',
             'min_value' => 'required_without:keyword|required_with:max_value|integer',
             'max_value' => 'required_without:keyword|required_with:min_value|integer'
         ];

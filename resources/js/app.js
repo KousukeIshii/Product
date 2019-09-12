@@ -22,7 +22,8 @@ Vue.use(VueRouter);
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('search-query',require('./components/SearchQuery.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,15 +34,17 @@ import index from './components/index.vue'
 import create from './components/create.vue'
 import show from './components/show.vue'
 import update from './components/update.vue'
+import search from './components/search.vue'
+//
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
         { path: '/spa', component: index },
         { path: '/spa/create', component: create},
-        { path: '/spa/:id', component: show},
+        { path: '/spa/show/:id', component: show},
         { path: '/spa/update/:id', component: update},
-        //{ path: '/about', component: require('./components/About.vue') },
+        { path: '/spa/search', component: search},
     ]
 })
 

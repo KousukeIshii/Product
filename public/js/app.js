@@ -1959,8 +1959,17 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var keyword = this.$route.query.keyword;
-      var max_value = this.$route.query.max_value;
-      var min_value = this.$route.query.min_value;
+      var max_value;
+      var min_value; //最大価格と最小価格が反対だったら代入を入れ替える。
+
+      if (this.$route.query.min_value > this.$route.query.max_value) {
+        max_value = this.$route.query.min_value;
+        min_value = this.$route.query.max_value;
+      } else {
+        max_value = this.$route.query.max_value;
+        min_value = this.$route.query.min_value;
+      }
+
       var data = {};
 
       if (keyword) {

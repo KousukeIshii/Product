@@ -30,8 +30,16 @@
         methods: {
             searchProducts() {
                 const keyword = this.$route.query.keyword;
-                const max_value = this.$route.query.max_value;
-                const min_value = this.$route.query.min_value;
+                let max_value;
+                let min_value;
+                //最大価格と最小価格が反対だったら代入を入れ替える。
+                if(this.$route.query.min_value > this.$route.query.max_value){
+                    max_value = this.$route.query.min_value;
+                    min_value = this.$route.query.max_value;
+                } else {
+                    max_value = this.$route.query.max_value;
+                    min_value = this.$route.query.min_value;
+                }
                 let data = {};
                 if(keyword){
                     data.keyword = keyword;

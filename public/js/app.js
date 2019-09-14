@@ -1755,6 +1755,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var crimage;
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
@@ -1781,6 +1785,10 @@ var crimage;
       fr.readAsDataURL(img);
     },
     postProducts: function postProducts() {
+      if (this.validateForms()) {
+        return false;
+      }
+
       var token = localStorage.getItem('j_token');
       var data = {
         "name": this.name,
@@ -1799,6 +1807,52 @@ var crimage;
       }).then(function (res) {
         console.log(res);
       });
+    },
+    validateForms: function validateForms() {
+      var validate_flag = false;
+      $('.product-form').each(function () {
+        $(this).css('border', '');
+      });
+      $('.error-message').each(function () {
+        $(this).css('display', 'none');
+      });
+
+      if (!this.value) {
+        validate_flag = true;
+        document.getElementById('product-value').style.border = "solid 2px orangered";
+        var v_error = document.getElementById('value-error');
+        v_error.style.display = "block";
+        v_error.textContent = "値段欄が空欄です。";
+      }
+
+      if (!crimage) {
+        validate_flag = true;
+        var i_error = document.getElementById('image-error');
+        i_error.style.display = "block";
+        i_error.textContent = "画像が選択されていません。";
+      }
+
+      if (!this.name) {
+        validate_flag = true;
+        var n_error = document.getElementById('name-error');
+        document.getElementById('product-name').style.border = "solid 2px orangered";
+        n_error.style.display = "block";
+        n_error.textContent = "名前欄が空欄です。";
+      }
+
+      if (!this.desc) {
+        validate_flag = true;
+        var d_error = document.getElementById('desc-error');
+        document.getElementById('product-desc').style.border = "solid 2px orangered";
+        d_error.style.display = "block";
+        d_error.textContent = "説明欄が空欄です。";
+      }
+
+      if (validate_flag) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 });
@@ -2040,6 +2094,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 var upimage;
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
@@ -2069,6 +2127,10 @@ var upimage;
       fr.readAsDataURL(img);
     },
     updateProduct: function updateProduct() {
+      if (this.validateForms()) {
+        return false;
+      }
+
       var token = localStorage.getItem('j_token');
       var id = this.$route.params['id'];
       var data = {};
@@ -2118,6 +2180,45 @@ var upimage;
         _this.value = _this.product.value;
         document.getElementById('product-value').value = _this.product.value;
       });
+    },
+    validateForms: function validateForms() {
+      var validate_flag = false;
+      $('.product-form').each(function () {
+        $(this).css('border', '');
+      });
+      $('.error-message').each(function () {
+        $(this).css('display', 'none');
+      });
+
+      if (!this.value) {
+        validate_flag = true;
+        document.getElementById('product-value').style.border = "solid 2px orangered";
+        var v_error = document.getElementById('value-error');
+        v_error.style.display = "block";
+        v_error.textContent = "値段欄が空欄です。";
+      }
+
+      if (!this.name) {
+        validate_flag = true;
+        var n_error = document.getElementById('name-error');
+        document.getElementById('product-name').style.border = "solid 2px orangered";
+        n_error.style.display = "block";
+        n_error.textContent = "名前欄が空欄です。";
+      }
+
+      if (!this.desc) {
+        validate_flag = true;
+        var d_error = document.getElementById('desc-error');
+        document.getElementById('product-desc').style.border = "solid 2px orangered";
+        d_error.style.display = "block";
+        d_error.textContent = "説明欄が空欄です。";
+      }
+
+      if (validate_flag) {
+        return true;
+      } else {
+        return false;
+      }
     }
   }
 });
@@ -6600,7 +6701,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.form-container[data-v-554a9507]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-554a9507]{\n    margin:0 0 0 0;\n}\n.product-form[data-v-554a9507]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-554a9507]{\n    max-height:100px;\n}\n#product-desc[data-v-554a9507]{\n    height:100px;\n    max-height:100px;\n}\n", ""]);
+exports.push([module.i, "\n.form-container[data-v-554a9507]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-554a9507]{\n    margin:0;\n}\n.product-form[data-v-554a9507]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-554a9507]{\n    max-height:100px;\n}\n#product-desc[data-v-554a9507]{\n    height:100px;\n    max-height:100px;\n}\n.error-message[data-v-554a9507]{\n    display:none;\n    margin:0;\n    color:orangered;\n}\n", ""]);
 
 // exports
 
@@ -6676,7 +6777,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#show-link-container[data-v-1beb0358]{\n    margin:0 0 15px 0;\n}\n#show-link[data-v-1beb0358]{\n    color:#232527;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n#show-link[data-v-1beb0358]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.form-container[data-v-1beb0358]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-1beb0358]{\n    margin:0 0 0 0;\n}\n.product-form[data-v-1beb0358]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-1beb0358]{\n    max-height:100px;\n}\n#product-desc[data-v-1beb0358]{\n    height:100px;\n    max-height:100px;\n}\n", ""]);
+exports.push([module.i, "\n#show-link-container[data-v-1beb0358]{\n    margin:0 0 15px 0;\n}\n#show-link[data-v-1beb0358]{\n    color:#232527;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n#show-link[data-v-1beb0358]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.form-container[data-v-1beb0358]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-1beb0358]{\n    margin:0;\n}\n.product-form[data-v-1beb0358]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-1beb0358]{\n    max-height:100px;\n}\n#product-desc[data-v-1beb0358]{\n    height:100px;\n    max-height:100px;\n}\n.error-message[data-v-1beb0358]{\n    display:none;\n    margin:0;\n    color:orangered;\n}\n", ""]);
 
 // exports
 
@@ -38435,6 +38536,8 @@ var render = function() {
   return _c("div", { staticClass: "form-container container-fluid" }, [
     _c("p", { staticClass: "form-desc" }, [_vm._v("商品名")]),
     _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "name-error" } }),
+    _vm._v(" "),
     _c("textarea", {
       directives: [
         {
@@ -38445,7 +38548,11 @@ var render = function() {
         }
       ],
       staticClass: "product-form col-sm-4",
-      attrs: { id: "product-name" },
+      attrs: {
+        maxlength: "100",
+        placeholder: "商品名は１００文字まで",
+        id: "product-name"
+      },
       domProps: { value: _vm.name },
       on: {
         input: function($event) {
@@ -38459,6 +38566,8 @@ var render = function() {
     _vm._v(" "),
     _c("p", { staticClass: "form-desc" }, [_vm._v("商品説明")]),
     _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "desc-error" } }),
+    _vm._v(" "),
     _c("textarea", {
       directives: [
         {
@@ -38469,7 +38578,11 @@ var render = function() {
         }
       ],
       staticClass: "product-form col-sm-6",
-      attrs: { id: "product-desc" },
+      attrs: {
+        maxlength: "500",
+        placeholder: "商品名は５００文字まで",
+        id: "product-desc"
+      },
       domProps: { value: _vm.desc },
       on: {
         input: function($event) {
@@ -38483,6 +38596,8 @@ var render = function() {
     _vm._v(" "),
     _c("p", { staticClass: "form-desc" }, [_vm._v("値段")]),
     _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "value-error" } }),
+    _vm._v(" "),
     _c("input", {
       directives: [
         {
@@ -38493,6 +38608,7 @@ var render = function() {
         }
       ],
       staticClass: "product-form col-sm-2",
+      attrs: { id: "product-value" },
       domProps: { value: _vm.value },
       on: {
         input: [
@@ -38507,7 +38623,9 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("p", { staticClass: "form-image" }, [_vm._v("商品画像")]),
+    _c("p", { staticClass: "form-desc" }, [_vm._v("商品画像")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "image-error" } }),
     _vm._v(" "),
     _c("input", {
       ref: "input",
@@ -38753,7 +38871,7 @@ var render = function() {
       [
         _c(
           "router-link",
-          { attrs: { id: "show-link", to: "/spa/" + _vm.product.id } },
+          { attrs: { id: "show-link", to: "/spa/show/" + _vm.product.id } },
           [_vm._v("商品概要へ戻る")]
         )
       ],
@@ -38761,6 +38879,8 @@ var render = function() {
     ),
     _vm._v(" "),
     _c("p", { staticClass: "form-desc" }, [_vm._v("商品名")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "name-error" } }),
     _vm._v(" "),
     _c(
       "textarea",
@@ -38790,6 +38910,8 @@ var render = function() {
     _vm._v(" "),
     _c("p", { staticClass: "form-desc" }, [_vm._v("商品説明")]),
     _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "desc-error" } }),
+    _vm._v(" "),
     _c(
       "textarea",
       {
@@ -38818,6 +38940,8 @@ var render = function() {
     _vm._v(" "),
     _c("p", { staticClass: "form-desc" }, [_vm._v("値段")]),
     _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "value-error" } }),
+    _vm._v(" "),
     _c("input", {
       directives: [
         {
@@ -38843,7 +38967,9 @@ var render = function() {
       }
     }),
     _vm._v(" "),
-    _c("p", { staticClass: "form-image" }, [_vm._v("商品画像")]),
+    _c("p", { staticClass: "form-desc" }, [_vm._v("商品画像")]),
+    _vm._v(" "),
+    _c("p", { staticClass: "error-message", attrs: { id: "image-error" } }),
     _vm._v(" "),
     _c("input", {
       ref: "input",

@@ -6691,7 +6691,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.search-desc[data-v-0f7406e5]{\n    display: inline-block;\n    vertical-align: center;\n    margin:0;\n}\n", ""]);
+exports.push([module.i, "\n.search-desc[data-v-0f7406e5]{\n    display: inline-block;\n    vertical-align: center;\n    margin:0 0 0 10px;\n    font-size: 17px;\n}\n#between[data-v-0f7406e5]{\n    margin: 0 5px 0 5px;\n}\n.search-link[data-v-0f7406e5]{\n    margin: 0 0 0 25px;\n}\n#search-query[data-v-0f7406e5]{\n    margin:10px 10px 30px 10px;\n}\n", ""]);
 
 // exports
 
@@ -38420,9 +38420,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "row" },
+    { staticClass: "row", attrs: { id: "search-query" } },
     [
-      _c("span", { staticClass: "search-desc" }, [_vm._v("検索ワード")]),
+      _c("div", { staticClass: "offset-1" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "search-desc" }, [_vm._v("検索ワード：")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -38446,7 +38448,7 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("span", { staticClass: "search-desc" }, [_vm._v("値段")]),
+      _c("span", { staticClass: "search-desc" }, [_vm._v("値段：")]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -38473,7 +38475,9 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("span", { staticClass: "search-desc" }, [_vm._v("〜")]),
+      _c("span", { staticClass: "search-desc", attrs: { id: "between" } }, [
+        _vm._v("〜")
+      ]),
       _vm._v(" "),
       _c("input", {
         directives: [
@@ -38503,7 +38507,7 @@ var render = function() {
       _c(
         "router-link",
         {
-          staticClass: "link",
+          staticClass: "search-link",
           attrs: {
             to:
               "/spa/search?keyword=" +

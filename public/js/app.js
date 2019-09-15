@@ -38700,7 +38700,7 @@ var render = function() {
         return _c("div", { staticClass: "col-sm-3 product-cards" }, [
           _c("img", {
             staticClass: "col-sm-12 image",
-            attrs: { src: "../image/" + product.image }
+            attrs: { src: "data:image/png;base64," + product.image }
           }),
           _vm._v(" "),
           _c(

@@ -24,4 +24,7 @@
     </div>
 @endsection
 <script>
+    window.onload = function() {
+        localStorage.setItem('j_token', '{{$token}}');
+    };
 </script>

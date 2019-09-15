@@ -18,6 +18,15 @@ class RestApiController extends Controller
     public function index()
     {
         $product = product::all();
+        foreach ($product as $p){
+            if(Storage::disk('public')->exists("/image/$p->image")) {
+                $img = Storage::disk('public')->get("/image/$p->image");
+                $p->image = base64_encode($img);
+            } else {
+                $p->image = "Image not found";
+            }
+        }
+
         $response['status']  = '200 OK';
         $response['summary'] = 'success.';
         $response['data']    = $product;

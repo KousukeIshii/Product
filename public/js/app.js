@@ -1785,6 +1785,8 @@ var crimage;
       fr.readAsDataURL(img);
     },
     postProducts: function postProducts() {
+      var _this = this;
+
       if (this.validateForms()) {
         return false;
       }
@@ -1805,7 +1807,9 @@ var crimage;
       })["catch"](function (error) {
         console.log(error);
       }).then(function (res) {
-        console.log(res);
+        alert('商品の作成に成功しました。');
+
+        _this.$router.push('/spa');
       });
     },
     validateForms: function validateForms() {
@@ -2059,6 +2063,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     destroyProduct: function destroyProduct() {
+      var _this2 = this;
+
       var id = this.$route.params['id'];
       var token = localStorage.getItem('j_token');
       axios["delete"]("/api/product/".concat(id), {
@@ -2069,6 +2075,8 @@ __webpack_require__.r(__webpack_exports__);
         data: {}
       }).then(function (res) {
         alert("商品を削除しました。");
+
+        _this2.$router.push('/spa');
       });
     }
   }
@@ -2136,6 +2144,8 @@ var upimage;
       fr.readAsDataURL(img);
     },
     updateProduct: function updateProduct() {
+      var _this = this;
+
       if (this.validateForms()) {
         return false;
       }
@@ -2170,10 +2180,15 @@ var upimage;
         console.log(error);
       }).then(function (res) {
         console.log(res);
+        alert('商品の更新が正常に完了しました。');
+
+        _this.$router.push({
+          path: "/spa/show/".concat(id)
+        });
       });
     },
     fetchProduct: function fetchProduct(id) {
-      var _this = this;
+      var _this2 = this;
 
       var token = localStorage.getItem('j_token');
       axios.get("/api/product/".concat(id), {
@@ -2183,11 +2198,11 @@ var upimage;
         },
         data: {}
       }).then(function (res) {
-        _this.product = res.data.data;
-        _this.name = _this.product.name;
-        _this.desc = _this.product.desc;
-        _this.value = _this.product.value;
-        document.getElementById('product-value').value = _this.product.value;
+        _this2.product = res.data.data;
+        _this2.name = _this2.product.name;
+        _this2.desc = _this2.product.desc;
+        _this2.value = _this2.product.value;
+        document.getElementById('product-value').value = _this2.product.value;
       });
     },
     validateForms: function validateForms() {
@@ -6767,7 +6782,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.link-container[data-v-e8d9b170]{\n    margin:0 0 15px 0;\n}\n.link[data-v-e8d9b170]{\n    color:#232527;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n.link[data-v-e8d9b170]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n", ""]);
+exports.push([module.i, "\n.link-container[data-v-e8d9b170]{\n    margin:0 0 15px 0;\n}\n.link[data-v-e8d9b170]{\n    color:#232527;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n.link[data-v-e8d9b170]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n#product-value[data-v-e8d9b170]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n", ""]);
 
 // exports
 
@@ -38844,7 +38859,9 @@ var render = function() {
         _vm._v(" "),
         _c("hr"),
         _vm._v(" "),
-        _c("p", [_vm._v("￥" + _vm._s(_vm.product.value))]),
+        _c("p", { attrs: { id: "product-value" } }, [
+          _vm._v("￥" + _vm._s(_vm.product.value))
+        ]),
         _vm._v(" "),
         _c("h5", [_vm._v(_vm._s(_vm.product.desc))])
       ])

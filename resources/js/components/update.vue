@@ -78,6 +78,8 @@
                     })
                     .then(res =>  {
                         console.log(res)
+                        alert('商品の更新が正常に完了しました。')
+                        this.$router.push({ path: `/spa/show/${id}` })
                     })
             },
             fetchProduct(id) {

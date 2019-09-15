@@ -13,7 +13,7 @@
             <div class="col-sm-6">
                 <h2>{{product.name}}</h2>
                 <hr>
-                <p>￥{{product.value}}</p>
+                <p id="product-value">￥{{product.value}}</p>
                 <h5>{{product.desc}}</h5>
             </div>
         </div>
@@ -52,6 +52,7 @@
                 })
                     .then(res =>  {
                         alert("商品を削除しました。")
+                        this.$router.push('/spa')
                     })
             },
             }
@@ -70,5 +71,9 @@
     .link:hover{
         text-decoration: none;
         color:darkblue;
+    }
+    #product-value{
+        color:orangered;
+        margin:8px 0px 8px 0px;
     }
 </style>

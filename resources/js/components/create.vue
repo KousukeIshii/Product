@@ -64,7 +64,8 @@
                         console.log(error);
                     })
                     .then(res =>  {
-                        console.log(res)
+                        alert('商品の作成に成功しました。')
+                        this.$router.push('/spa')
                     })
             },
             validateForms(){

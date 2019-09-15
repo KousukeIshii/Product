@@ -6746,7 +6746,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.product-cards[data-v-2ac2c897]{\n    color:dimgray;\n    background-color: white;\n}\n.image[data-v-2ac2c897]{\n    margin:8px 0px 8px 0px;\n}\n#link[data-v-2ac2c897]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-2ac2c897]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-2ac2c897]{\n    margin:8px 8px;\n}\n.value[data-v-2ac2c897]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-2ac2c897]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
+exports.push([module.i, "\n.product-cards[data-v-2ac2c897]{\n    color:dimgray;\n    background-color: white;\n}\n.image[data-v-2ac2c897]{\n    margin:8px 0px 8px 0px;\n    height:30%;\n}\n#link[data-v-2ac2c897]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-2ac2c897]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-2ac2c897]{\n    margin:8px 8px;\n}\n.value[data-v-2ac2c897]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-2ac2c897]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
 
 // exports
 
@@ -6765,7 +6765,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.product-cards[data-v-4d55b89a]{\n    color:dimgray;\n    background-color: white;\n}\n.image[data-v-4d55b89a]{\n    margin:8px 0px 8px 0px;\n}\n#link[data-v-4d55b89a]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-4d55b89a]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-4d55b89a]{\n    margin:8px 8px;\n}\n.value[data-v-4d55b89a]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-4d55b89a]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
+exports.push([module.i, "\n.product-cards[data-v-4d55b89a]{\n    color:dimgray;\n    background-color: white;\n}\n.image[data-v-4d55b89a]{\n    margin:8px 0px 8px 0px;\n    height:30%;\n}\n#link[data-v-4d55b89a]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-4d55b89a]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-4d55b89a]{\n    margin:8px 8px;\n}\n.value[data-v-4d55b89a]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-4d55b89a]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
 
 // exports
 

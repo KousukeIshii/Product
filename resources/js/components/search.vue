@@ -76,6 +76,7 @@
     }
     .image{
         margin:8px 0px 8px 0px;
+        height:30%;
     }
     #link{
         color:#232527;

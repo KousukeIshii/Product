@@ -1805,7 +1805,7 @@ var crimage;
       this.$http.post('/api/product', data, {
         headers: headers
       })["catch"](function (error) {
-        console.log(error);
+        alert('商品の作成中にエラーが発生しました。');
       }).then(function (res) {
         alert('商品の作成に成功しました。');
 
@@ -1911,6 +1911,8 @@ __webpack_require__.r(__webpack_exports__);
           "Authorization": "Bearer ".concat(token)
         },
         data: {}
+      })["catch"](function (error) {
+        alert('商品の取得にエラーが発生しました。');
       }).then(function (res) {
         console.log(res);
         _this.products = res.data;
@@ -1995,8 +1997,9 @@ __webpack_require__.r(__webpack_exports__);
       };
       this.$http.post('/api/search', data, {
         headers: headers
+      })["catch"](function (error) {
+        alert('商品の取得にエラーが発生しました。');
       }).then(function (res) {
-        console.log(res);
         _this.products = res.data;
       });
     }
@@ -2177,9 +2180,8 @@ var upimage;
       this.$http.patch("/api/product/".concat(id), data, {
         headers: headers
       })["catch"](function (error) {
-        console.log(error);
+        alert('商品の更新中にエラーが発生しました。');
       }).then(function (res) {
-        console.log(res);
         alert('商品の更新が正常に完了しました。');
 
         _this.$router.push({

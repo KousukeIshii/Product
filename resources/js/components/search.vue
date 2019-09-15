@@ -58,8 +58,10 @@
                 this.$http.post('/api/search', data,{
                     headers: headers
                 })
+                    .catch(error => {
+                        alert('商品の取得にエラーが発生しました。')
+                    })
                     .then(res =>  {
-                        console.log(res)
                         this.products = res.data
                     })
             },

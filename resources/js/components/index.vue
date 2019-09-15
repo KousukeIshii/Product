@@ -34,6 +34,9 @@
                     headers: { "Content-Type": "application/json","Authorization": `Bearer ${token}`},
                     data: {}
                 })
+                    .catch(error => {
+                        alert('商品の取得にエラーが発生しました。')
+                    })
                     .then(res =>  {
                         console.log(res)
                         this.products = res.data

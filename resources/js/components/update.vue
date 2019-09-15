@@ -74,10 +74,9 @@
                     headers: headers
                 })
                     .catch(error => {
-                        console.log(error);
+                        alert('商品の更新中にエラーが発生しました。')
                     })
                     .then(res =>  {
-                        console.log(res)
                         alert('商品の更新が正常に完了しました。')
                         this.$router.push({ path: `/spa/show/${id}` })
                     })

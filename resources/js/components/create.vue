@@ -61,7 +61,7 @@
                     headers: headers
                 })
                     .catch(error => {
-                        console.log(error);
+                        alert('商品の作成中にエラーが発生しました。')
                     })
                     .then(res =>  {
                         alert('商品の作成に成功しました。')

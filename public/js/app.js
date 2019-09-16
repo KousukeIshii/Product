@@ -1891,6 +1891,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.fetchProducts();
@@ -6746,7 +6748,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.product-cards[data-v-2ac2c897]{\n    color:dimgray;\n    background-color: white;\n}\n.image[data-v-2ac2c897]{\n    margin:8px 0px 8px 0px;\n    height:30%;\n}\n#link[data-v-2ac2c897]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-2ac2c897]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-2ac2c897]{\n    margin:8px 8px;\n}\n.value[data-v-2ac2c897]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-2ac2c897]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
+exports.push([module.i, "\n.product-cards[data-v-2ac2c897]{\n    color:dimgray;\n    background-color: white;\n}\n#image-container[data-v-2ac2c897]{\n    height:240px;\n}\n.image[data-v-2ac2c897]{\n    margin:0 auto;\n    max-height:200px;\n}\n#link[data-v-2ac2c897]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-2ac2c897]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-2ac2c897]{\n    margin:8px 8px;\n}\n.value[data-v-2ac2c897]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-2ac2c897]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
 
 // exports
 
@@ -38700,10 +38702,12 @@ var render = function() {
       { staticClass: "row" },
       _vm._l(_vm.products.data, function(product) {
         return _c("div", { staticClass: "col-sm-3 product-cards" }, [
-          _c("img", {
-            staticClass: "col-sm-12 image",
-            attrs: { src: "data:image/png;base64," + product.image }
-          }),
+          _c("div", { attrs: { id: "image-container" } }, [
+            _c("img", {
+              staticClass: "col-sm-12 image",
+              attrs: { src: "data:image/png;base64," + product.image }
+            })
+          ]),
           _vm._v(" "),
           _c(
             "h4",
@@ -38720,7 +38724,13 @@ var render = function() {
           _vm._v(" "),
           _c("p", { staticClass: "desc col-sm-12" }, [
             _vm._v(
-              "\n                " + _vm._s(product.desc) + "\n            "
+              "\n                " +
+                _vm._s(
+                  product.desc.length > 35
+                    ? product.desc.substr(0, 35) + "..."
+                    : product.desc
+                ) +
+                "\n            "
             )
           ]),
           _vm._v(" "),

@@ -2,12 +2,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 product-cards" v-for="product in products.data">
-                <img :src="`data:image/png;base64,${product.image}`" class="col-sm-12 image">
+                <div id = "image-container">
+                    <img :src="`data:image/png;base64,${product.image}`" class="col-sm-12 image">
+                </div>
                 <h4 class="title col-sm-12">
                     <router-link id="link" :to="'/spa/show/' + product.id">{{ product.name }}</router-link>
                 </h4>
                 <p class="desc col-sm-12">
-                    {{product.desc}}
+                    {{ (product.desc.length>35) ? product.desc.substr(0,35) + "..." : product.desc }}
                 </p>
                 <div class="value col-sm-12">
                     ￥{{product.value}}
@@ -51,9 +53,12 @@
         color:dimgray;
         background-color: white;
     }
+    #image-container{
+        height:240px;
+    }
     .image{
-        margin:8px 0px 8px 0px;
-        height:30%;
+        margin:0 auto;
+        max-height:200px;
     }
     #link{
         color:#232527;

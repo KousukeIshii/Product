@@ -125,6 +125,7 @@ class RestApiController extends Controller
                 Storage::disk('public')->delete("/image/$product->image");
             }
             $file_name = $this->getFilename($img);
+            $img = base64_decode($img);
             Storage::disk('public')->put("/image/$file_name", $img);
             $product->image = "$file_name";
         }

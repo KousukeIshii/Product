@@ -2,10 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="link-container col-sm-6">
-                <router-link class="link" to='/spa'>商品一覧へ戻る</router-link>
+                <router-link class="link" to='/spa'>&lt;&lt;商品一覧へ戻る</router-link>
             </div>
-            <div class="link-container col-sm-6">
-                <router-link class="link" :to="'/spa/update/' + product.id">商品情報を変更</router-link>
+            <div class="col-sm-3"></div>
+            <div class="link-container col-sm-3">
+                <router-link class="link" :to="'/spa/update/' + product.id">商品情報を変更&gt;&gt;</router-link>
             </div>
         </div>
         <div class="row">
@@ -64,13 +65,13 @@
         margin:0 0 15px 0;
     }
     .link{
-        color:#232527;
+        color:darkblue;
         font-size:18px;
         margin:0 0 0 10px;
     }
-    .link:hover{
+    .link:hover {
         text-decoration: none;
-        color:darkblue;
+        color:#232527;
     }
     #product-value{
         color:orangered;

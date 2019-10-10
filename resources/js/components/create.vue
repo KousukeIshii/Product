@@ -1,5 +1,8 @@
 <template>
     <div class = "form-container container-fluid">
+        <div class="link-container col-sm-6">
+            <router-link class="link" to="/spa/">&lt;&lt;商品一覧へ戻る</router-link>
+        </div>
         <p class="form-desc">商品名</p>
         <p id="name-error"class="error-message"></p>
         <textarea class="product-form col-sm-4" maxlength="100" placeholder="商品名は１００文字まで" id="product-name" v-model="name"></textarea>
@@ -134,5 +137,17 @@
         display:none;
         margin:0;
         color:orangered;
+    }
+    .link-container{
+        margin:0 0 15px 0;
+    }
+    .link{
+        color:darkblue;
+        font-size:18px;
+        margin:0 0 0 10px;
+    }
+    .link:hover{
+        text-decoration: none;
+        color:#232527;
     }
 </style>

@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="col-md-8 offset-2">
                     <a class="btn btn-block btn-spa-link" href="spa">
-                        <i class="fab fa-google" aria-hidden="true"> 商品管理画面へ</i>
+                        <i aria-hidden="true"> 商品一覧画面へ</i>
                     </a>
                 </div>
                 <div class="card">

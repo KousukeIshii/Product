@@ -10657,3 +10657,14 @@ a.text-dark:focus {
   margin-bottom: 20px;
 }
 
+.btn-link {
+  color: #FFF;
+  background-color: #bac5ba;
+  border-color: gray;
+  margin-bottom: 20px;
+}
+
+.btn-url {
+  text-decoration: none;
+}
+

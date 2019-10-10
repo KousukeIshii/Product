@@ -1759,6 +1759,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var crimage;
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
@@ -1872,6 +1875,11 @@ var crimage;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2019,6 +2027,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -6729,7 +6738,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.form-container[data-v-554a9507]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-554a9507]{\n    margin:0;\n}\n.product-form[data-v-554a9507]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-554a9507]{\n    max-height:100px;\n}\n#product-desc[data-v-554a9507]{\n    height:100px;\n    max-height:100px;\n}\n.error-message[data-v-554a9507]{\n    display:none;\n    margin:0;\n    color:orangered;\n}\n", ""]);
+exports.push([module.i, "\n.form-container[data-v-554a9507]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-554a9507]{\n    margin:0;\n}\n.product-form[data-v-554a9507]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-554a9507]{\n    max-height:100px;\n}\n#product-desc[data-v-554a9507]{\n    height:100px;\n    max-height:100px;\n}\n.error-message[data-v-554a9507]{\n    display:none;\n    margin:0;\n    color:orangered;\n}\n.link-container[data-v-554a9507]{\n    margin:0 0 15px 0;\n}\n.link[data-v-554a9507]{\n    color:darkblue;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n.link[data-v-554a9507]:hover{\n    text-decoration: none;\n    color:#232527;\n}\n", ""]);
 
 // exports
 
@@ -6786,7 +6795,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.link-container[data-v-e8d9b170]{\n    margin:0 0 15px 0;\n}\n.link[data-v-e8d9b170]{\n    color:#232527;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n.link[data-v-e8d9b170]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n#product-value[data-v-e8d9b170]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n", ""]);
+exports.push([module.i, "\n.link-container[data-v-e8d9b170]{\n    margin:0 0 15px 0;\n}\n.link[data-v-e8d9b170]{\n    color:darkblue;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n.link[data-v-e8d9b170]:hover {\n    text-decoration: none;\n    color:#232527;\n}\n#product-value[data-v-e8d9b170]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n", ""]);
 
 // exports
 
@@ -6805,7 +6814,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#show-link-container[data-v-1beb0358]{\n    margin:0 0 15px 0;\n}\n#show-link[data-v-1beb0358]{\n    color:#232527;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n#show-link[data-v-1beb0358]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.form-container[data-v-1beb0358]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-1beb0358]{\n    margin:0;\n}\n.product-form[data-v-1beb0358]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-1beb0358]{\n    max-height:100px;\n}\n#product-desc[data-v-1beb0358]{\n    height:100px;\n    max-height:100px;\n}\n.error-message[data-v-1beb0358]{\n    display:none;\n    margin:0;\n    color:orangered;\n}\n", ""]);
+exports.push([module.i, "\n#show-link-container[data-v-1beb0358]{\n    margin:0 0 15px 0;\n}\n#show-link[data-v-1beb0358]{\n    color:darkblue;\n    font-size:18px;\n    margin:0 0 0 10px;\n}\n#show-link[data-v-1beb0358]:hover{\n    text-decoration: none;\n    color:#232527;\n}\n.form-container[data-v-1beb0358]{\n    margin:0 0 30px 0;\n}\n.form-desc[data-v-1beb0358]{\n    margin:0;\n}\n.product-form[data-v-1beb0358]{\n    margin:0 0 5px 0;\n}\n#product-name[data-v-1beb0358]{\n    max-height:100px;\n}\n#product-desc[data-v-1beb0358]{\n    height:100px;\n    max-height:100px;\n}\n.error-message[data-v-1beb0358]{\n    display:none;\n    margin:0;\n    color:orangered;\n}\n", ""]);
 
 // exports
 
@@ -38566,6 +38575,17 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "form-container container-fluid" }, [
+    _c(
+      "div",
+      { staticClass: "link-container col-sm-6" },
+      [
+        _c("router-link", { staticClass: "link", attrs: { to: "/spa/" } }, [
+          _vm._v("<<商品一覧へ戻る")
+        ])
+      ],
+      1
+    ),
+    _vm._v(" "),
     _c("p", { staticClass: "form-desc" }, [_vm._v("商品名")]),
     _vm._v(" "),
     _c("p", { staticClass: "error-message", attrs: { id: "name-error" } }),
@@ -38696,54 +38716,78 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.products.data, function(product) {
-        return _c("div", { staticClass: "col-sm-3 product-cards" }, [
-          _c("div", { attrs: { id: "image-container" } }, [
-            _c("img", {
-              staticClass: "col-sm-12 image",
-              attrs: { src: "data:image/png;base64," + product.image }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "h4",
-            { staticClass: "title col-sm-12" },
-            [
-              _c(
-                "router-link",
-                { attrs: { id: "link", to: "/spa/show/" + product.id } },
-                [_vm._v(_vm._s(product.name))]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "desc col-sm-12" }, [
-            _vm._v(
-              "\n                " +
-                _vm._s(
-                  product.desc.length > 35
-                    ? product.desc.substr(0, 35) + "..."
-                    : product.desc
-                ) +
-                "\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "value col-sm-12" }, [
-            _vm._v(
-              "\n                ￥" + _vm._s(product.value) + "\n            "
+  return _c(
+    "div",
+    { staticClass: "container-fluid" },
+    [
+      _c(
+        "router-link",
+        {
+          staticClass: "col-sm-6 offset-3 btn btn-block btn-link",
+          attrs: { id: "btn-create-link", to: "/spa/create" }
+        },
+        [
+          _c("a", [
+            _c(
+              "i",
+              { staticClass: "btn-url", attrs: { "aria-hidden": "true" } },
+              [_vm._v(" 商品登録画面へ")]
             )
           ])
-        ])
-      }),
-      0
-    )
-  ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.products.data, function(product) {
+          return _c("div", { staticClass: "col-sm-3 product-cards" }, [
+            _c("div", { attrs: { id: "image-container" } }, [
+              _c("img", {
+                staticClass: "col-sm-12 image",
+                attrs: { src: "data:image/png;base64," + product.image }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "h4",
+              { staticClass: "title col-sm-12" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { id: "link", to: "/spa/show/" + product.id } },
+                  [_vm._v(_vm._s(product.name))]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("p", { staticClass: "desc col-sm-12" }, [
+              _vm._v(
+                "\n                " +
+                  _vm._s(
+                    product.desc.length > 35
+                      ? product.desc.substr(0, 35) + "..."
+                      : product.desc
+                  ) +
+                  "\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "value col-sm-12" }, [
+              _vm._v(
+                "\n                ￥" +
+                  _vm._s(product.value) +
+                  "\n            "
+              )
+            ])
+          ])
+        }),
+        0
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38837,15 +38881,17 @@ var render = function() {
         { staticClass: "link-container col-sm-6" },
         [
           _c("router-link", { staticClass: "link", attrs: { to: "/spa" } }, [
-            _vm._v("商品一覧へ戻る")
+            _vm._v("<<商品一覧へ戻る")
           ])
         ],
         1
       ),
       _vm._v(" "),
+      _c("div", { staticClass: "col-sm-3" }),
+      _vm._v(" "),
       _c(
         "div",
-        { staticClass: "link-container col-sm-6" },
+        { staticClass: "link-container col-sm-3" },
         [
           _c(
             "router-link",
@@ -38853,7 +38899,7 @@ var render = function() {
               staticClass: "link",
               attrs: { to: "/spa/update/" + _vm.product.id }
             },
-            [_vm._v("商品情報を変更")]
+            [_vm._v("商品情報を変更>>")]
           )
         ],
         1
@@ -38914,7 +38960,7 @@ var render = function() {
         _c(
           "router-link",
           { attrs: { id: "show-link", to: "/spa/show/" + _vm.product.id } },
-          [_vm._v("商品概要へ戻る")]
+          [_vm._v("<<商品概要へ戻る")]
         )
       ],
       1

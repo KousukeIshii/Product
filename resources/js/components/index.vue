@@ -1,5 +1,10 @@
 <template>
     <div class="container-fluid">
+        <router-link class="col-sm-6 offset-3 btn btn-block btn-link" id="btn-create-link" to="/spa/create">
+            <a>
+                <i aria-hidden="true" class="btn-url"> 商品登録画面へ</i>
+            </a>
+        </router-link>
         <div class="row">
             <div class="col-sm-3 product-cards" v-for="product in products.data">
                 <div id = "image-container">

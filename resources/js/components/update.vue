@@ -1,7 +1,7 @@
 <template>
     <div class = "form-container container-fluid">
         <div id="show-link-container">
-            <router-link id="show-link" :to="'/spa/show/' + product.id">商品概要へ戻る</router-link>
+            <router-link id="show-link" :to="'/spa/show/' + product.id">&lt;&lt;商品概要へ戻る</router-link>
         </div>
         <p class="form-desc">商品名</p>
         <p id="name-error"class="error-message"></p>
@@ -139,13 +139,13 @@
         margin:0 0 15px 0;
     }
     #show-link{
-        color:#232527;
+        color:darkblue;
         font-size:18px;
         margin:0 0 0 10px;
     }
     #show-link:hover{
         text-decoration: none;
-        color:darkblue;
+        color:#232527;
     }
     .form-container{
         margin:0 0 30px 0;

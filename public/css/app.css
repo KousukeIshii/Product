@@ -10650,3 +10650,10 @@ a.text-dark:focus {
   border-color: #a94335;
 }
 
+.btn-spa-link {
+  color: #FFF;
+  background-color: darkgray;
+  border-color: gray;
+  margin-bottom: 20px;
+}
+

@@ -19,8 +19,8 @@ class RestApiController extends Controller
     {
         $product = product::all();
         foreach ($product as $p){
-            if(Storage::disk('public')->exists("/image/$p->image")) {
-                $img = Storage::disk('public')->get("/image/$p->image");
+            if(Storage::disk('s3')->exists("/$p->image")) {
+                $img = Storage::disk('s3')->get("/$p->image");
                 $p->image = base64_encode($img);
             } else {
                 $p->image = "Image not found";
@@ -54,7 +54,7 @@ class RestApiController extends Controller
         $img = $request->image;
         $file_name = $this->getFilename($img);
         $img = base64_decode($img);
-        Storage::disk('public')->put("/image/$file_name",$img);
+        Storage::disk('s3')->put("/$file_name",$img);
         $product = new product;
         $product->fill($request->all());
         $product->image = "$file_name"; //画像のファイル名をデータベースに保存
@@ -78,10 +78,10 @@ class RestApiController extends Controller
             $response = $this->checkData($product);
             return response()->json($response,400);
         }
-        $path = "/image/{$product->image}"; //データベースのファイル名から画像を取得
+        $path = "/{$product->image}"; //データベースのファイル名から画像を取得
 
-        if(Storage::disk('public')->exists($path)) {//画像データがストレージにあった場合はデータを取得
-            $img = Storage::disk('public')->get($path);
+        if(Storage::disk('s3')->exists($path)) {//画像データがストレージにあった場合はデータを取得
+            $img = Storage::disk('s3')->get($path);
             $img = base64_encode($img);
         } else { //画像データがなければメッセージを返す
             $img = "商品画像は削除されました。";
@@ -121,12 +121,12 @@ class RestApiController extends Controller
         }
         if($request->filled('image')){ //requestに画像ファイルが含まれていれば画像ファイルを更新
             $img = $request->image;
-            if(Storage::disk('public')->exists("/image/$product->image")) {
-                Storage::disk('public')->delete("/image/$product->image");
+            if(Storage::disk('s3')->exists("/$product->image")) {
+                Storage::disk('s3')->delete("/$product->image");
             }
             $file_name = $this->getFilename($img);
             $img = base64_decode($img);
-            Storage::disk('public')->put("/image/$file_name", $img);
+            Storage::disk('s3')->put("/$file_name", $img);
             $product->image = "$file_name";
         }
         foreach (array('name','desc','value') as $r){ //リクエストに含まれているデータのみ更新
@@ -154,8 +154,8 @@ class RestApiController extends Controller
             $response = $this->checkData($product);
             return response()->json($response,400);
         }
-        if(Storage::disk('public')->exists("/image/$product->image")) {
-            Storage::disk('public')->delete("/image/$product->image");
+        if(Storage::disk('s3')->exists("/image/$product->image")) {
+            Storage::disk('s3')->delete("/image/$product->image");
         }
         $product->delete();
 

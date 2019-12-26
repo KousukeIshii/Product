@@ -2,7 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 product-cards" v-for="product in products.data">
-                <img :src="`data:image/png;base64,${product.image}`" class="col-sm-12 image">
+                <div id = "image-container">
+                    <img :src="`http://d1sf4sp0904zch.cloudfront.net/${product.image}`" class="col-sm-12 image">
+                </div>
                 <h4 class="title col-sm-12">
                     <router-link id="link" :to="'/spa/show/' + product.id">{{ product.name }}</router-link>
                 </h4>
@@ -70,13 +72,16 @@
 </script>
 
 <style scoped>
+    #image-container{
+        height:240px;
+    }
     .product-cards{
         color:dimgray;
         background-color: white;
     }
     .image{
-        margin:8px 0px 8px 0px;
-        height:30%;
+        margin:0 auto;
+        max-height:200px;
     }
     #link{
         color:#232527;

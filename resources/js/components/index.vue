@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-3 product-cards" v-for="product in products.data">
                 <div id = "image-container">
-                    <img :src="`data:image/png;base64,${product.image}`" class="col-sm-12 image">
+                    <img :src="`http://d1sf4sp0904zch.cloudfront.net/${product.image}`" class="col-sm-12 image">
                 </div>
                 <h4 class="title col-sm-12">
                     <router-link id="link" :to="'/spa/show/' + product.id">{{ product.name }}</router-link>

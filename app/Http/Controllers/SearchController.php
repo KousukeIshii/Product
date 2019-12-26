@@ -24,10 +24,7 @@ class SearchController extends Controller
         }
         $product = $query->get();
         foreach ($product as $p){
-            if(Storage::disk('public')->exists("/image/$p->image")) {
-                $img = Storage::disk('public')->get("/image/$p->image");
-                $p->image = base64_encode($img);
-            } else {
+            if(!Storage::disk('s3')->exists("/$p->image")) {
                 $p->image = "Image not found";
             }
         }

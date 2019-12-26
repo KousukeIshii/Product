@@ -1961,6 +1961,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.searchProducts();
@@ -6776,7 +6778,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.product-cards[data-v-4d55b89a]{\n    color:dimgray;\n    background-color: white;\n}\n.image[data-v-4d55b89a]{\n    margin:8px 0px 8px 0px;\n    height:30%;\n}\n#link[data-v-4d55b89a]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-4d55b89a]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-4d55b89a]{\n    margin:8px 8px;\n}\n.value[data-v-4d55b89a]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-4d55b89a]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
+exports.push([module.i, "\n#image-container[data-v-4d55b89a]{\n    height:240px;\n}\n.product-cards[data-v-4d55b89a]{\n    color:dimgray;\n    background-color: white;\n}\n.image[data-v-4d55b89a]{\n    margin:0 auto;\n    max-height:200px;\n}\n#link[data-v-4d55b89a]{\n    color:#232527;\n    margin:0;\n}\n#link[data-v-4d55b89a]:hover{\n    text-decoration: none;\n    color:darkblue;\n}\n.desc[data-v-4d55b89a]{\n    margin:8px 8px;\n}\n.value[data-v-4d55b89a]{\n    color:orangered;\n    margin:8px 0px 8px 0px;\n}\n.row[data-v-4d55b89a]{\n    margin:10px 0px 10px 0px;\n    border-top:solid 2px lightgray;\n    border-bottom:solid 2px lightgray;\n}\n", ""]);
 
 // exports
 
@@ -38745,7 +38747,9 @@ var render = function() {
             _c("div", { attrs: { id: "image-container" } }, [
               _c("img", {
                 staticClass: "col-sm-12 image",
-                attrs: { src: "data:image/png;base64," + product.image }
+                attrs: {
+                  src: "http://d1sf4sp0904zch.cloudfront.net/" + product.image
+                }
               })
             ]),
             _vm._v(" "),
@@ -38817,10 +38821,14 @@ var render = function() {
       { staticClass: "row" },
       _vm._l(_vm.products.data, function(product) {
         return _c("div", { staticClass: "col-sm-3 product-cards" }, [
-          _c("img", {
-            staticClass: "col-sm-12 image",
-            attrs: { src: "data:image/png;base64," + product.image }
-          }),
+          _c("div", { attrs: { id: "image-container" } }, [
+            _c("img", {
+              staticClass: "col-sm-12 image",
+              attrs: {
+                src: "http://d1sf4sp0904zch.cloudfront.net/" + product.image
+              }
+            })
+          ]),
           _vm._v(" "),
           _c(
             "h4",
@@ -38909,7 +38917,9 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("img", {
         staticClass: "col-sm-6",
-        attrs: { src: "data:image/png;base64," + _vm.product.image }
+        attrs: {
+          src: "http://d1sf4sp0904zch.cloudfront.net/" + _vm.product.image
+        }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-6" }, [

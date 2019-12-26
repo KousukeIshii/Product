@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row">
-            <img class="col-sm-6" :src="`data:image/png;base64,${product.image}`">
+            <img class="col-sm-6" :src="`http://d1sf4sp0904zch.cloudfront.net/${product.image}`">
             <div class="col-sm-6">
                 <h2>{{product.name}}</h2>
                 <hr>

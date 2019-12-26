@@ -19,10 +19,7 @@ class RestApiController extends Controller
     {
         $product = product::all();
         foreach ($product as $p){
-            if(Storage::disk('s3')->exists("/$p->image")) {
-                $img = Storage::disk('s3')->get("/$p->image");
-                $p->image = base64_encode($img);
-            } else {
+            if(!Storage::disk('s3')->exists("/$p->image")) {
                 $p->image = "Image not found";
             }
         }
@@ -80,14 +77,11 @@ class RestApiController extends Controller
         }
         $path = "/{$product->image}"; //データベースのファイル名から画像を取得
 
-        if(Storage::disk('s3')->exists($path)) {//画像データがストレージにあった場合はデータを取得
-            $img = Storage::disk('s3')->get($path);
-            $img = base64_encode($img);
-        } else { //画像データがなければメッセージを返す
+        if(!Storage::disk('s3')->exists($path)) {//画像データがストレージにあった場合はデータを取得
+            //画像データがなければメッセージを返す
             $img = "商品画像は削除されました。";
+            $product->image = $img;
         }
-
-        $product->image = $img;
         $response['status']  = '200 OK';
         $response['summary'] = 'success.';
         $response['data']    = $product;

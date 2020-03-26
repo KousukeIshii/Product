@@ -17,7 +17,7 @@ class OAuthLoginController extends Controller
 
     public function authGoogleCallback()
     {
-        $googleUser = Socialite::driver('google')->user();
+        $googleUser = Socialite::driver('google')->stateless()->user();
         $user = GoogleUser::firstOrNew(['email' => $googleUser->email]);
         if (!$user->exists) {
             $user['email'] = $googleUser->email;
